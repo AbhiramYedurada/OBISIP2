@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>login page</title>
+<style>
+    h4{
+       text-shadow: 2px 2px;
+    }
+      a{
+          color: brown;
+      }
+      h3{
+        color: brown;
+      }
+      button{
+    background-color: #6f00ff; 
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    }
+</style>
+
+<script>
+    function validate() {
+        var email =
+      document.getElementById('email').value;
+        var pwd =
+      document.getElementById('pwd').value;
+        var regEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g; //Javascript reGex for Email Validation.
+
+        if (email == "" || !regEmail.test(email)) {
+        window.alert("Please enter a valid e-mail address");
+        email.focus();
+        return false;
+        }
+    
+        if (pwd == "") {
+        alert("Please enter your password");
+        pwd.focus();
+        return false;
+        }
+
+        return true;
+    }
+</script>
+</head>
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <center>
+       <form action="login.php" method="post">
+        <table>
+        <tr>
+            <th><h2>LOGIN</h2></th>
+        </tr>
+        <tr>
+            <td>Email: </td>
+                <td><input type="text" placeholder="Enter Email" name="email" id="email"></input>
+            </td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+                <td><input type="password" placeholder="Enter password" name="pwd" id="pwd"></input>
+            </td>
+        </tr>
+        <tr>
+            <td><button class="button" type="Submit" name="submit" value="send" id="Submit" onclick="validate()">Sign in</button>
+            </td>
+        </tr>
+        </table>
+    </form>
+       <p>Don't have an account</p>
+        <a href="signup.html">Register!</a>
+    </center>
+    </body>
+</html>

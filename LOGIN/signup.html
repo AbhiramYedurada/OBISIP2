@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>sign up page</title>
+<style>
+      div{
+           margin: 150px;
+      }
+      td{
+        color:wheat;
+      }
+      font{
+        color: wheat;
+      }
+      p{
+        color: wheat;
+      }
+      a{
+        color: whitesmoke;
+      }
+      .button {
+  background-color: green; 
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+</style>
+
+<script>
+  function validate() {
+    var fname =
+      document.getElementById('first_name').value;
+    var email =
+      document.getElementById('email').value;
+    var pwd =
+      document.getElementById('pwd').value;
+    var cpwd =
+      document.getElementById('cpwd').value;
+    var phone =
+      document.getElementById('phone').value;
+    var regEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g; 
+    var regPhone=/^\d{10}$/;									
+    var regName = /\d+$/g;								
+
+    if (fname == "" || regName.test(fname)) {
+      window.alert("Please enter your firstname properly");
+      fname.focus();
+      return false;
+    }
+
+    
+    if (email == "" || !regEmail.test(email)) {
+      window.alert("Please enter a valid e-mail address");
+      email.focus();
+      return false;
+    }
+    
+    if (pwd == "") {
+      alert("Please enter your password");
+      pwd.focus();
+      return false;
+    }
+
+    if (cpwd == "") {
+      alert("Please confirm your password");
+      cpwd.focus();
+      return false;
+    }
+
+    if(pwd.length <6){
+      alert("Password should be atleast 6 character long");
+      pwd.focus();
+      return false;
+
+    }
+    if (phone == "" || !regPhone.test(phone)) {
+      alert("Please enter a valid phone number.");
+      phone.focus();
+      return false;
+    }
+
+    return true;
+  }
+</script>
+</head>
+<div class="sign">
+<body bgcolor="sky blue">
+  <center> <font aria-setsize="100"><h2>SIGN UP</h2></font>
+      <table border="0" align="center">
+   <form action="details.php" method="post">
+         <tr>
+            <td>Name         :</td>
+            <td><input type="text" placeholder="First Name" name="first_name" id="first_name"></td>
+    </tr>
+    <tr>
+        <td>Email        :</td>
+       <td><input type="text" placeholder="Email" name="email" id="email"></td>
+     </tr>
+        <tr>
+           <td>Password name:</td>
+             <td><input type="password" placeholder="password" name="pwd" id="pwd"></input>
+           </td>
+       </tr>
+       <tr>
+       <td>Confirm Password name:</td>
+             <td><input type="password" placeholder="Confirm password" name="cpwd" id="cpwd"></input>
+           </td>
+       </tr>
+       <tr>
+        <td>Phone number :</td>
+       <td><input type="text" placeholder="Phone Number" name="mobile" id="phone"></input>
+      </td>
+     </tr>
+     <tr> 
+            <td>  <button class="button" type="Submit" name="saved" value="send" id="Submit" onclick="validate()">Submit</button></td>
+            <td>  <input class="button" type="Reset" value="Reset"></td>
+     </tr>
+     </form>
+     </table>
+     <p>Already have an account</p>
+     <a href="login.html">Log in</a>
+    </center>
+     </body>
+     </div>
+     </html>
